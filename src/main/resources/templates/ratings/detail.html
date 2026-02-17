@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating Detail</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h1 th:text="${ratingView.rating.name}"></h1>
+        <p><strong>Role Type:</strong> <span th:text="${ratingView.rating.roleType}"></span></p>
+        <p><strong>Display Title:</strong> <span th:text="${ratingView.displayTitle}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${ratingView.rating.email}"></span></p>
+        <p><strong>Clarity:</strong> <span th:text="${ratingView.rating.clarity}"></span></p>
+        <p><strong>Niceness:</strong> <span th:text="${ratingView.rating.niceness}"></span></p>
+        <p><strong>Knowledgeable Score:</strong> <span th:text="${ratingView.rating.knowledgeableScore}"></span></p>
+        <p><strong>Overall Score:</strong>
+            <span th:text="${#numbers.formatDecimal(ratingView.rating.overallScore, 1, 1)}"></span>
+        </p>
+        <p><strong>Comment:</strong> <span th:text="${ratingView.rating.comment}"></span></p>
+        <p class="meta">
+            Created: <span th:text="${ratingView.rating.createdAt}"></span>
+            | Updated: <span th:text="${ratingView.rating.updatedAt}"></span>
+        </p>
+
+        <div class="actions">
+            <a class="btn" th:href="@{/ratings/{id}/edit(id=${ratingView.rating.id})}">Edit</a>
+            <a class="btn btn-danger" th:href="@{/ratings/{id}/delete(id=${ratingView.rating.id})}">Delete</a>
+            <a class="btn btn-secondary" th:href="@{/ratings}">Back</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

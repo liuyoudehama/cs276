@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate CS Teaching Staff</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h1>Rate CS Teaching Staff</h1>
+        <p class="meta">Iteration 1 prototype: full CRUD + validation + persistence.</p>
+        <a class="btn" th:href="@{/ratings/new}">Add Rating</a>
+    </div>
+
+    <div class="card">
+        <h2>All Ratings</h2>
+        <table class="table" th:if="${!ratings.isEmpty()}">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Display Title</th>
+                <th>Overall Score</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="rv : ${ratings}">
+                <td th:text="${rv.rating.name}"></td>
+                <td th:text="${rv.rating.roleType}"></td>
+                <td th:text="${rv.displayTitle}"></td>
+                <td th:text="${#numbers.formatDecimal(rv.rating.overallScore, 1, 1)}"></td>
+                <td><a th:href="@{/ratings/{id}(id=${rv.rating.id})}">View</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <p th:if="${ratings.isEmpty()}">No ratings yet.</p>
+    </div>
+</div>
+</body>
+</html>

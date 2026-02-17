@@ -1,0 +1,32 @@
+# Maven build output
+target/
+
+# Maven wrapper JAR (keep scripts/properties committed)
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE files
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Spring Boot
+*.pid
+*.pid.lock
+
+# Local environment files
+.env
+.env.*
+
+# Local Maven repository in project (if present)
+.m2/

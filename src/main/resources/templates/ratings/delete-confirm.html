@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Rating</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h1>Confirm Delete</h1>
+        <p>Are you sure you want to delete the rating for <strong th:text="${ratingView.rating.name}"></strong>?</p>
+
+        <form method="post" th:action="@{/ratings/{id}/delete(id=${ratingView.rating.id})}">
+            <div class="actions">
+                <button class="btn btn-danger" type="submit">Yes, Delete</button>
+                <a class="btn btn-secondary" th:href="@{/ratings/{id}(id=${ratingView.rating.id})}">No, Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
